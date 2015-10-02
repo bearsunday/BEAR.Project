@@ -1,6 +1,6 @@
 <?php
+namespace BEAR\Project;
 
-use MyVendor\Psr7;
 use BEAR\Package\Bootstrap;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
@@ -14,5 +14,5 @@ $_ENV['TEST_DIR'] = __DIR__;
 $_ENV['TMP_DIR'] = __DIR__ . '/tmp';
 
 // set the resource client
-$app = (new Bootstrap)->getApp('MyVendor\Psr7', 'app');
+$app = (new Bootstrap)->getApp(__NAMESPACE__, 'app');
 $GLOBALS['RESOURCE'] = $app->resource;
