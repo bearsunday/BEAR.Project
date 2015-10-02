@@ -6,7 +6,6 @@ BEAR.Sunday is a PSR-7 compliant Resource Oriented Framework.
 
 ```
 composer create-project -s dev bear/project MyVendor.MyProject
-composer install
 php -S 127.0.0.1:8080 -t var/www
 
 ```
