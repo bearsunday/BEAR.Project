@@ -1,0 +1,19 @@
+{
+    "name": "bear/project",
+    "type": "project",
+    "description":"A Resource Oriented project skeleton.",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5.0",
+        "bear/package": "dev-psr7"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "BEAR\\Project\\": "src/"
+        }
+    }
+}
