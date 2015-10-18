@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.5.0",
-        "bear/package": "dev-psr7"
+        "bear/middleware": "1.x-dev"
     },
     "require-dev": {
     },
