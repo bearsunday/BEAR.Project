@@ -2,8 +2,10 @@
 
 namespace BEAR\Project;
 
+use BEAR\AppMeta\AppMeta;
+use BEAR\Middleware\Boot;
 use BEAR\Package\Bootstrap;
-use BEAR\Sunday\Extension\Application\AbstractApp;
+use BEAR\Resource\ResourceInterface;
 
 class AppModuleTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,8 +15,7 @@ class AppModuleTest extends \PHPUnit_Framework_TestCase
     public function contextsProvider()
     {
         return [
-            ['app'],
-            ['prod-hal-api-app'],
+            ['app']
         ];
     }
 
@@ -23,7 +24,8 @@ class AppModuleTest extends \PHPUnit_Framework_TestCase
      */
     public function testNewApp($contexts)
     {
-        $app = (new Bootstrap())->getApp(__NAMESPACE__, $contexts);
-        $this->assertInstanceOf(AbstractApp::class, $app);
+        $injector = (new Boot())->getInjector(new AppMeta(__NAMESPACE__), $contexts);
+        $resource = $injector->getInstance(ResourceInterface::class);
+        $this->assertInstanceOf(ResourceInterface::class, $resource);
     }
 }

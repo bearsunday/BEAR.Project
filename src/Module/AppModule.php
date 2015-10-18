@@ -12,6 +12,6 @@ class AppModule extends AbstractModule
      */
     protected function configure()
     {
-        $this->install(new SundayModule());
+        $this->install(new SundayModule);
     }
 }
