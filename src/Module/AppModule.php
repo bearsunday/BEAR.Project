@@ -2,7 +2,7 @@
 
 namespace BEAR\Project\Module;
 
-use BEAR\Package\PackageModule;
+use BEAR\Sunday\Module\SundayModule;
 use Ray\Di\AbstractModule;
 
 class AppModule extends AbstractModule
@@ -12,6 +12,6 @@ class AppModule extends AbstractModule
      */
     protected function configure()
     {
-        $this->install(new PackageModule);
+        $this->install(new SundayModule());
     }
 }
