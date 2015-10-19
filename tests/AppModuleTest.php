@@ -4,7 +4,6 @@ namespace BEAR\Project;
 
 use BEAR\AppMeta\AppMeta;
 use BEAR\Middleware\Boot;
-use BEAR\Package\Bootstrap;
 use BEAR\Resource\ResourceInterface;
 
 class AppModuleTest extends \PHPUnit_Framework_TestCase

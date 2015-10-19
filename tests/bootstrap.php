@@ -3,10 +3,8 @@ namespace BEAR\Project;
 
 use BEAR\AppMeta\AppMeta;
 use BEAR\Middleware\Boot;
-use BEAR\Package\Bootstrap;
 use BEAR\Resource\ResourceInterface;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Ray\Di\InjectorInterface;
 
 error_reporting(E_ALL);
 
@@ -18,6 +16,5 @@ $_ENV['TEST_DIR'] = __DIR__;
 $_ENV['TMP_DIR'] = __DIR__ . '/tmp';
 
 // set the resource client
-/** @var $injector InjectorInterface */
-$injector = (new Boot())->getInjector(new AppMeta(__NAMESPACE__), 'app');
+$injector = (new Boot)->getInjector(new AppMeta(__NAMESPACE__), 'app');
 $GLOBALS['RESOURCE'] = $injector->getInstance(ResourceInterface::class);
