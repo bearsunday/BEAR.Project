@@ -5,9 +5,9 @@ BEAR.Sunday is a PSR-7 compliant Resource Oriented Framework.
 ## Installing BEAR.Sunday PSR-7 application
 
 ```
-composer create-project -s dev bear/project MyVendor.MyProject
+composer create-project bear/project MyVendor.MyProject
 cd MyVendor.MyProject
-php -S 127.0.0.1:8080 -t var/www
+php -S 127.0.0.1:8080 -t public
 ```
 
 ## PHP Streams for message bodies
@@ -15,7 +15,7 @@ php -S 127.0.0.1:8080 -t var/www
 ```php
 class Index extends ResourceObject
 {
-    public function onGet($name = 'BEAR.Sunday')
+    public function onGet(string $name = 'BEAR.Sunday') : ResourceObject
     {
         $fp = fopen(__DIR__ . '/image.jpg', 'r');
         stream_filter_append($fp, 'convert.base64-encode');
