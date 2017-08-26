@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @global string $context
- */
 namespace BEAR\Project;
 
 use BEAR\AppMeta\AppMeta;
@@ -16,20 +13,18 @@ use Relay\RelayBuilder;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 
-loader: {
-    $loader = require dirname(__DIR__) . '/vendor/autoload.php';
-    AnnotationRegistry::registerLoader([$loader, 'loadClass']);
-}
-init: {
-    $injector = (new Boot)->getInjector(new AppMeta(__NAMESPACE__), $context);
-    $relayBuilder = new RelayBuilder(new Resolver($injector));
-    $queue = [
-        ResponseSender::class,
-        ExceptionHandler::class,
-        ResourceHandler::class
-    ];
-    $relay = $relayBuilder->newInstance($queue);
-    $request = ServerRequestFactory::fromGlobals();
-}
+$loader = require dirname(__DIR__) . '/vendor/autoload.php';
+AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+
+/* @global  $context */
+$injector = (new Boot)->getInjector(new AppMeta(__NAMESPACE__), $context);
+$relayBuilder = new RelayBuilder(new Resolver($injector));
+$queue = [
+    ResponseSender::class,
+    ExceptionHandler::class,
+    ResourceHandler::class
+];
+$relay = $relayBuilder->newInstance($queue);
+$request = ServerRequestFactory::fromGlobals();
 
 $relay($request, new Response);
