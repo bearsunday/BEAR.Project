@@ -1,6 +1,4 @@
-# BEAR.Sunday
-
-BEAR.Sunday is a PSR-7 compliant Resource Oriented Framework. 
+# A PSR-7 BEAR.Sunday application project skeleton
 
 ## Installing BEAR.Sunday PSR-7 application
 
