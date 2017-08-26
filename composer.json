@@ -8,6 +8,10 @@
         "bear/middleware": "^0.1",
         "bear/package": "^1.6.0"
     },
+    "require-dev": {
+        "bear/qatools": "^1.4.2",
+        "phpunit/phpunit": "^6.2"
+    },
     "autoload": {
         "psr-4": {
             "BEAR\\Project\\": "src/"
